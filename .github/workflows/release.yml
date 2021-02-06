@@ -8,6 +8,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: XCode Version
       run: xcodebuild -version
     - name: XCode Build
       env:
