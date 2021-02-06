@@ -1,0 +1,15 @@
+name: Release
+
+on: push
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      run: xcodebuild -version
+    - name: XCode Build
+      env:
+        EXCLUDED_ARCHS: arm64
+      run: xcodebuild -project ./ControlRoom.xcodeproj -scheme "Debug - ControlRoom" -disableAutomaticPackageResolution -quiet
